@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/variables.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Patient Dashboard</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Navbar -->
+      <nav class="navbar">
+        <div class="logo">
+          <a href="/" aria-label="Tech.Care Home">
+            <!-- Using an SVG logo for better scalability -->
+            <img
+              src="img/TestLogo.svg"
+              alt="Tech.Care Logo"
+              width="211"
+              height="48"
+            />
+          </a>
+        </div>
+        <ul class="ul-middle">
+          <li>
+            <a href="#">
+              <!-- <span> -->
+              <img
+                src="img/home_FILL0_wght300_GRAD0_opsz24.svg"
+                alt="Home"
+                width="22"
+                height="17"
+              />
+              Home
+              <!-- </span> -->
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <!-- <span> -->
+              <img
+                src="img/group_FILL0_wght300_GRAD0_opsz24.svg"
+                alt="Patients"
+                width="22"
+                height="17"
+              />
+              Patients
+              <!-- </span> -->
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <!-- <span> -->
+              <img
+                src="img/calendar_today_FILL0_wght300_GRAD0_opsz24.svg"
+                alt="Schedule"
+                width="22"
+                height="17"
+              />
+              Schedule
+              <!-- </span> -->
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <!-- <span> -->
+              <img
+                src="img/chat_bubble_FILL0_wght300_GRAD0_opsz24.svg"
+                alt="Message"
+                width="22"
+                height="17"
+              />
+              Message
+              <!-- </span> -->
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <!-- <span> -->
+              <img
+                src="img/credit_card_FILL0_wght300_GRAD0_opsz24.svg"
+                alt="Transactions"
+                width="22"
+                height="17"
+              />
+              Transactions
+              <!-- </span> -->
+            </a>
+          </li>
+        </ul>
+
+        <ul class="ul-end">
+          <li>
+            <img
+              src="img/senior-woman-doctor-and-portrait-smile-for-health-2023-11-27-05-18-16-utc/senior-woman-doctor-and-portrait-smile-for-health-2023-11-27-05-18-16-utc.png"
+              alt="Senior doctor"
+              width="44"
+              height="44"
+            />
+          </li>
+          <li class="text">
+            <p class="top">Dr. Jose Simmons</p>
+            <p class="end">General Practioner</p>
+          </li>
+          <li class="setting">
+            <img
+              src="img/settings_FILL0_wght300_GRAD0_opsz24.svg"
+              alt="settings"
+              width="19"
+              height="20"
+            />
+          </li>
+          <li>
+            <img
+              src="img/more_vert_FILL0_wght300_GRAD0_opsz24.svg"
+              alt="more"
+              width="19"
+              height="20"
+            />
+          </li>
+        </ul>
+      </nav>
+
+      <div class="main-container">
+        <div class="patients-list">
+          <div class="search-bar">
+            <input type="text" placeholder="Patients" />
+            <img
+              src="img/search_FILL0_wght300_GRAD0_opsz24.svg"
+              alt="search icon"
+              width="18"
+              height="18"
+            />
+          </div>
+          <div id="contact-list">
+            <!-- contact items comes here -->
+          </div>
+        </div>
+        <div class="diagnosis-part">
+          <div class="diagnosis-design" id="dignosis-history">
+            <p class="diagnosis-history-heading">Diagnosis History</p>
+            <!-- <div class="chart"> -->
+
+            <div class="chart-container">
+              <div class="chart">
+                <div class="chart-heading">
+                  <p class="bp-heading">Blood Pressure</p>
+                  <p class="last-6-months">Last 6 months ^</p>
+                </div>
+                <canvas id="bloodPressureChart"></canvas>
+              </div>
+              <div class="stats">
+                <div class="point-line">
+                  <p class="point" id="point-systolic"></p>
+                  <p class="point-text">&nbsp;Systolic</p>
+                </div>
+                <p class="stats-bp" id="systolicValue">160</p>
+                <div class="stats-end">
+                  <img
+                    src="img/ArrowUp.svg"
+                    alt="ArrowUp"
+                    width="10"
+                    height="5"
+                  />
+                  <p id="systolicStatus">Lower than Average</p>
+                </div>
+                <div class="point-line">
+                  <p class="point" id="point-diastolic"></p>
+                  <p class="point-text">&nbsp;Diastolic</p>
+                </div>
+                <p class="stats-bp" id="diastolicValue">78</p>
+                <div class="stats-end">
+                  <img
+                    src="img/ArrowDown.svg"
+                    alt="ArrowDown"
+                    width="10"
+                    height="5"
+                  />
+                  <p id="diastolicStatus">Lower than Average</p>
+                </div>
+                           
+                            <!-- <p><span style="color: #ff6b6b;">Systolic</span>: <strong id="systolicValue">160</strong></p>
+                            <p id="systolicStatus">Higher than Average</p>
+                            <p><span style="color: #6b6bff;">Diastolic</span>: <strong id="diastolicValue">78</strong></p>
+                            <p id="diastolicStatus">Lower than Average</p> -->
+                            
+              </div>
+            </div>
+            <!-- </div> -->
+            <div class="cards">
+                <div class="card">
+                    <img
+                    src="img/respiratory rate.svg"
+                    alt="respiratory rate"
+                    width="96"
+                    height="96"
+                  />
+                  <p class="card-p1">Respiratory Rate</p>
+                  <p class="card-p2" id="respiratoryRateValue">20bpm</p>
+                  <p class="card-p3" id="respiratoryRateLevels">Normal</p>
+                </div>
+                <div class="card">
+                    <img
+                    src="img/temperature.svg"
+                    alt="temperature"
+                    width="96"
+                    height="96"
+                  />
+                  <p class="card-p1">Temperature</p>
+                  <p class="card-p2" id="temperatureValue">98.60F</p>
+                  <p class="card-p3" id="temperatureLevels">Normal</p>
+                </div>
+                <div class="card">
+                    <img
+                    src="img/HeartBPM.svg"
+                    alt="Heart rate"
+                    width="96"
+                    height="96"
+                  />
+                  <p class="card-p1">Heart Rate</p>
+                  <p class="card-p2" id="heartRateValue">20bpm</p>
+                  <div class="card-temp card-p3">
+                    <img
+                      src="img/ArrowDown.svg"
+                      alt="ArrowDown"
+                      width="10"
+                      height="5"
+                    />
+                    <p id="heartRateLevels">Lower than Average</p>
+                  </div>
+                  <!-- <p class="card-p3">Normal</p> -->
+                </div>
+            </div>
+    
+          </div>
+           <!-- Table -->
+          <div class="diagnosis-design" id="diagnostic-list">
+            <p class="diagnostic-list-heading">Diagnostic List</p>
+
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                    <thead>
+                        <tr>
+                        <th>Problem/Diagnosis</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        </tr>
+                    </thead>
+                    </table>
+                </div>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody id="tbl-content-body">
+                        <tr>
+                        <td>XXD</td>
+                        <td>ADITYA BIRLA</td>
+                        <td>$1.02</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+          </div>
+        </div>
+        <div class="patient-info">
+
+            <div class="profile-info-container">
+                <div class="patient-image">
+                  <img src="img/Layer 2/Layer 2.png" alt="Jessica" height="200" width="200">
+                  <p id="patient-name">Jessica Taylor</p>
+                </div>
+                
+                <!-- patient data -->
+                <div class="patient-data">
+                  <img src="img/BirthIcon.svg" alt="BirthIcon" width="42" height="42">
+                  <div>
+                    <p>Date Of Birth</p>
+                    <p id="patient-dob">August 23, 1996</p>
+                  </div>
+                </div>
+
+                <div class="patient-data">
+                  <img src="img/FemaleIcon.svg" alt="gender icon" width="42" height="42">
+                  <div>
+                    <p>Gender</p>
+                    <p id="patient-gender">Female</p>
+                  </div>
+                </div>
+
+                <div class="patient-data">
+                  <img src="img/PhoneIcon.svg" alt="PhoneIcon" width="42" height="42">
+                  <div>
+                    <p>Contact Info.</p>
+                    <p id="patient-contact">(415) 555-1234</p>
+                  </div>
+                </div>
+
+                <div class="patient-data">
+                  <img src="img/PhoneIcon.svg" alt="PhoneIcon" width="42" height="42">
+                  <div>
+                    <p>Emergency Contacts</p>
+                    <p id="patient-emergency">(415) 555-5678</p>
+                  </div>
+                </div>
+
+                <div class="patient-data">
+                  <img src="img/InsuranceIcon.svg" alt="InsuranceIcon" width="42" height="42">
+                  <div>
+                    <p>Insurance Provider</p>
+                    <p id="patient-insurance">Sunrise Health Assurance</p>
+                  </div>
+                </div>
+                
+                <div class="patient-button-container">
+                  <button class="patient-data-button">Show All Information</button>
+                </div>
+            </div>
+
+            <div class="lab-results">
+              <p>Lab Results</p>
+              <div class="results-table">
+                <table cellpadding="0" cellspacing="0" border="0">
+                  <tbody id="lab-results-body">
+                      <tr>
+                      <td>Blood Tests</td>
+                      <td id="downloadIcon"><img src="img/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="downloadIcon" width="20" height="20"></td>
+                      </tr>
+                      <tr>
+                      <td>Blood Tests</td>
+                      <td id="downloadIcon"><img src="img/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="downloadIcon" width="20" height="20"></td>
+                      </tr>
+                      <tr>
+                      <td>Blood Tests</td>
+                      <td id="downloadIcon"><img src="img/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="downloadIcon" width="20" height="20"></td>
+                      </tr>
+                      <tr>
+                      <td>Blood Tests</td>
+                      <td id="downloadIcon"><img src="img/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="downloadIcon" width="20" height="20"></td>
+                      </tr>
+                      <tr>
+                      <td>Blood Tests</td>
+                      <td id="downloadIcon"><img src="img/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="downloadIcon" width="20" height="20"></td>
+                      </tr>
+                      <tr>
+                      <td>Blood Tests</td>
+                      <td id="downloadIcon"><img src="img/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="downloadIcon" width="20" height="20"></td>
+                      </tr>
+                      <tr>
+                      <td>Blood Tests</td>
+                      <td id="downloadIcon"><img src="img/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="downloadIcon" width="20" height="20"></td>
+                      </tr>
+                      <tr>
+                      <td>Blood Tests</td>
+                      <td id="downloadIcon"><img src="img/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="downloadIcon" width="20" height="20"></td>
+                      </tr>
+                      <tr>
+                      <td>Blood Tests</td>
+                      <td id="downloadIcon"><img src="img/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="downloadIcon" width="20" height="20"></td>
+                      </tr>
+                      <tr>
+                      <td>Blood Tests</td>
+                      <td id="downloadIcon"><img src="img/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="downloadIcon" width="20" height="20"></td>
+                      </tr>
+                      <tr>
+                      <td>Blood Tests</td>
+                      <td id="downloadIcon"><img src="img/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="downloadIcon" width="20" height="20"></td>
+                      </tr>
+                      <tr>
+                      <td>Blood Tests</td>
+                      <td id="downloadIcon"><img src="img/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="downloadIcon" width="20" height="20"></td>
+                      </tr>
+                      <tr>
+                      <td>Blood Tests</td>
+                      <td id="downloadIcon"><img src="img/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="downloadIcon" width="20" height="20"></td>
+                      </tr>
+                      
+                    
+                  </tbody>
+                  </table>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>
