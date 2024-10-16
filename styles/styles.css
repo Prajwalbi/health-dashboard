@@ -6,8 +6,8 @@
 
 body {
   font-family: "Manrope", sans-serif; /* Set the default font for the body */
-  font-size: 14pt; 
-  background-color: #f6f7f8; /* Background color for the body */
+  font-size: 14pt;
+  background-color: var(--color-gray);
   margin: 18px;
   color: #072635;
 }
@@ -15,43 +15,52 @@ body {
   position: relative; /* Positioning the body */
   top: 0px;
   left: 0px;
-  width: 1600px;
+  /* width: 1600px; */
   width: 100%;
-  height: 1160px;
+  width: 100%;
+  /* height: 1160px; */
+  height: 72.5rem;
   background: #f6f7f8 0% 0% no-repeat padding-box; /* Light gray background */
   opacity: 1;
 }
 
-
-
 /* Default for mobile */
 .navbar {
-  position: relative;
-  /* top: 18px; */
-  /* left: 18px;
-    right: 38px; */
-  width: 100%; /* Full width on smaller screens */
+  position: fixed;
+  width: 98%; /* Full width on smaller screens */
   max-width: 100vw; /* Prevent overflow */
-  height: 72px;
+  /* height: 72px; */
+  height: 4.5rem;
   background-color: #ffffff;
-  border-radius: 20px; /* Smaller border-radius for mobile */
+  /* border-radius: 20px;  */
+  border-radius: 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 32px;
+  padding: 0 2rem;
+  /* padding: 0 32px; */
+  /* flex-wrap: wrap; */
+  z-index: 999;
+  /* border-top: 18px solid var(--color-background); */
+
 }
 
 /* Logo Background Image */
 .logo {
-    position: relative;
-    /* width: 211px;
-    height: 48px; */
-    background: transparent url("img/TestLogo.svg") no-repeat center center;
-    background-size: contain; /* Ensures the logo fits within its container */
-    /* top: 30px;
+  position: relative;
+  background: transparent url("img/TestLogo.svg") no-repeat center center;
+  background-size: contain; /* Ensures the logo fits within its container */
+  /* top: 30px;
     left: 50px; */
-    /* padding: 12px 32px; */
-  }
+  /* padding: 12px 32px; */
+}
+
+
+#logo-image {
+  height: 2.5vw;  
+  width: 11vw; 
+}
+
 
 .nav-links {
   display: none; /* Hide links on small screens, we could show it in a hamburger menu */
@@ -61,58 +70,83 @@ body {
   list-style: none;
   display: flex;
   align-items: center;
-  max-width: 663px;
-  gap: 2px;
+  /* max-width: 663px; */
+  max-width: 41.44rem;
+  /* gap: 2px; */
+  gap: 0.125rem;
 }
 
-.navbar .ul-middle li{
-    color: #072635;
-    padding: 11px 16px;
-    background-color:#01F0D0;
-    border-radius: 41px;
-    
+.navbar .ul-middle li {
+  color: #072635;
+  /* padding: 11px 16px; */
+  padding: 0.6875rem 1rem;
+
+  /* border-radius: 41px; */
+  border-radius: 2.5625rem;
 }
-.ul-middle li a{
-   text-decoration: none;
-   color: inherit;
-   display: flex;
-   align-items: center;
-   gap: 5px;
-   font-size: 14px;
+#patints-navlink {
+  background-color: var(--color-cyan);
+}
+.ul-middle li a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  /* gap: 5px; */
+  gap: 0.3125rem;
+  /* font-size: 14px; */
+  font-size: 0.875rem;
 }
 
-.navbar .ul-end{
+.navbar .ul-end {
   list-style: none;
   display: flex;
   align-items: center;
 }
 
-.ul-end .text{
-    /* margin-left: 8px; */
-    margin: 3px 25px 3px 8px;
-    font-size: 14px;
+.hamberger{
+  display: none;
+  cursor: pointer;
 }
 
-.text .top{
-    color:  #072635;
+.bar{
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: var(--color-black);
 }
 
-.text .end{
-    color: #707070;
+.ul-end .text {
+  /* margin-left: 8px; */
+  /* margin: 3px 25px 3px 8px; */
+  margin: 0.1875rem 1.5625rem 0.1875rem 0.5rem;
+  /* font-size: 14px; */
+  font-size: 0.875rem;
 }
 
-.setting{
-    margin-right: 15px;
+.text .top {
+  color: #072635;
 }
 
-.main-container{
-    display: flex;
-    /* justify-content: space-between; */
-   
+.text .end {
+  color: #707070;
 }
 
-.patients-list{
-    /* position: absolute; */
+.setting {
+  /* margin-right: 15px; */
+  margin-right: 0.9375rem;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+/* .patients-list{
     margin: 32px 32px 0 0;
     max-width: 367px;
     background: #FFFFFF; 
@@ -122,175 +156,235 @@ body {
     height: calc(100vh - 132px);  
     overflow-y: auto; 
     height: 1054px;
+} */
+
+
+
+.patients-list {
+  /* margin: 1.5vw 1.5vw 1.5vw 0; */
+  margin: calc(1.5vw + 72px) 1.5vw 1.5vw 0;
+  background: #ffffff;
+  border-radius: 1rem; /* Use rem for consistent rounding */
+  opacity: 1;
+  width: 22vw; 
+  min-width: 290px;
+  height: calc(100vh - 132px);
+  overflow-y: auto; 
+  white-space: nowrap;
+  position: fixed;
+  
+  
 }
 
-.search-bar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;    
-    padding: 20px 20px 20px 20px;
-    /* position: fixed; */
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 20px 20px 20px 20px; */
+  padding: 1.25rem;
 }
 
-
-.search-bar input{
+/* .search-bar input{
     width: 100%;
     border: none;
     outline: none;
-    font-size: 18px;                     /* Font size */
-    font-weight: 700;                    /* Font weight */
-    line-height: 33px;                   /* Line height */
-    letter-spacing: 0px;                 /* Letter spacing */
+    font-weight: 700;                    
+    line-height: 33px;                   
+    letter-spacing: 0px;                
+} */
+
+.search-bar input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.125rem; /* Font size */
+  font-weight: 700; /* Font weight */
+  line-height: 2.0625rem; /* Line height */
+  letter-spacing: 0rem; /* Letter spacing */
 }
 
-.search-bar input::placeholder{
-    font: normal normal 800 18px/33px 'Manrope', sans-serif;
-    letter-spacing: 0px;
-    /* font-weight: 800; */
-    color: #072635;       /* Placeholder text color */
-    text-align: left;
+.search-bar input::placeholder {
+  /* font: normal normal 800 18px/33px 'Manrope', sans-serif; */
+  font: normal normal 800 1.125rem/2.0625rem "Manrope", sans-serif;
+  letter-spacing: 0px;
+  color: #072635;
+  text-align: left;
 }
 
-#contact-list{
-    display: flex;
-    flex-direction: column;
-}
-
-.contact-item{
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.contact-item .left-end{
-    display: flex;
-    gap: 12px;
-}
-
-.contact-text{
-    font-size: 14px;
-    line-height: 19px;                  
-    letter-spacing: 0px;
-    opacity: 1;  
-}
-.contact-text .top{
-    font-weight: bold;                            
-    color: #072635;                                        
-}
-
-.contact-text .bottom{
-    font-weight: normal;                /* Normal font weight */
-    color: #707070;                     /* Text color */
-}
-
-
-.contact-item:hover{
-    background: var(--activestate_bg_2, #D8FCF7) 0% 0% no-repeat padding-box;
-    cursor: pointer;
-}
-
-.diagnosis-part{
+#contact-list {
   display: flex;
   flex-direction: column;
 }
 
-
-.diagnosis-design{
-  padding: 20px;
-  border-radius: 16px;
-  opacity: 1;
-  
-  background-color: var(--color-white);
-  margin-top: 32px;
-  position: relative;
-  /* background: var(white) 0% 0% no-repeat padding-box;  */
-  
+.contact-item {
+  /* padding: 20px; */
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
+.contact-item .left-end {
+  display: flex;
+  /* gap: 12px; */
+  gap: 0.75rem;
+}
 
+.contact-text {
+  /* font-size: 14px; */
+  font-size: 0.875rem;
+  line-height: 19px;
+  line-height: 1.1875rem;
+  opacity: 1;
+}
+.contact-text .top {
+  font-weight: bold;
+  color: #072635;
+}
 
-.diagnosis-history-heading{
-  font: var(--font-style-normal) normal var(--font-weight-800) 
-  var(--font-size-24)/var(--line-spacing-33) 
-  var(--font-family-manrope);
+.contact-text .bottom {
+  font-weight: normal; /* Normal font weight */
+  color: #707070; /* Text color */
+}
+
+.contact-item:hover {
+  background: var(--activestate_bg_2, #d8fcf7) 0% 0% no-repeat padding-box;
+  cursor: pointer;
+}
+
+.diagnosis-part {
+  display: flex;
+  flex-direction: column;
+  /* position: fixed;
+  overflow-x: auto; */
+  margin-top: 72px;
+}
+
+.diagnosis-design {
+  /* padding: 20px; */
+  padding: 1.25rem;
+  border-radius: 16px;
+  opacity: 1;
+
+  background-color: var(--color-white);
+  margin-top: 1.67vw;
+  position: relative;
+  margin-left: 23.5vw;
+  /* background: var(white) 0% 0% no-repeat padding-box;  */
+}
+
+.diagnosis-history-heading {
+  font: var(--font-style-normal) normal var(--font-weight-800)
+    var(--font-size-24) / var(--line-spacing-33) var(--font-family-manrope);
   color: var(--color-black);
   letter-spacing: var(--character-spacing-0);
   opacity: 1;
 }
 
-#diagnosis-history{
+/* #diagnosis-history{
   margin-right: 33px;
   width: 766px;
   height: 673px;
   
+} */
+
+#diagnostic-list {
+  /* width: 47vw;  */
+  /* Responsive width based on viewport width */
+  /* height: 22vw; */
+  
 }
 
-#diagnostic-list{
-  width: 766px;
-  height: 349px;
-  /* padding: 20px; */
+#diagnosis-history {
+  margin-right: 2vw; /* Margin responsive to viewport width */
+  width: 47vw; /* Responsive width based on viewport width */
+  height: 42vw; /* Responsive height based on viewport width */
 }
 
-.diagnostic-list-heading{
-  font: normal normal 800 24px/33px Manrope;
+.diagnostic-list-heading {
+  font: normal normal 800 1.5rem/2.0625rem Manrope;
 }
 
-.charts{
+/* .charts{
   margin: 40px 0 20px 0;
+} */
+
+.charts {
+  margin: 2.5rem 0 1.25rem 0;
 }
-
-
-
-
-
 
 .dashboard {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  /* gap: 20px; */
+  gap: 1.25rem;
 }
 
-.chart-container {
+/* .chart-container {
   width: 100%;
   display: flex;
   margin-top: 40px;
-  /* align-items: center; */
   padding: 16px;
   background: #F4F0FE 0% 0% no-repeat padding-box;
   border-radius: 12px;
   opacity: 1;
-  /* position: relative; */
+} */
+
+.chart-container {
+  width: 100%;
+  display: flex;
+  margin-top: 2.5rem;
+  padding: 1rem;
+  background: #f4f0fe 0% 0% no-repeat padding-box;
+  border-radius: 0.75rem;
+  opacity: 1;
 }
 
-.chart{
+.chart {
   width: 70%;
 }
 
-.chart-heading{
+.chart-heading {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 
-.bp-heading{
+/* .bp-heading{
   height: 24px;
   font: normal normal bold 18px/24px Manrope;
   letter-spacing: 0px;
   color: var(--color-black);
-}
+} */
 
-.last-6-months{
-  font: normal normal normal 14px/19px Manrope;
-  letter-spacing: 0px;
+.bp-heading {
+  height: 1.5rem;
+  font: normal normal bold 1.125rem/1.5rem Manrope;
+  letter-spacing: 0rem;
   color: var(--color-black);
 }
 
-#bloodPressureChart {
+/* .last-6-months{
+  font: normal normal normal 14px/19px Manrope;
+  letter-spacing: 0px;
+  color: var(--color-black);
+} */
+
+.last-6-months {
+  font: normal normal normal 0.875rem/1.1875rem Manrope;
+  letter-spacing: 0rem;
+  color: var(--color-black);
+}
+
+/* #bloodPressureChart {
   height: 300px;
   width:  60%;
+} */
+
+#bloodPressureChart {
+  height: 18.75rem;
+  width: 60%; /* Percentage values remain unchanged */
 }
 
 /* .stats {
@@ -300,47 +394,69 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 } */
 
-.stats{
-  margin-left: 42px;
+.stats {
+  /* margin-left: 42px; */
+  margin-left: 2.625rem;
 }
-.point-line{
+.point-line {
   display: flex;
   align-items: center;
 }
-.point{
+/* .point{
     width: 14px;
     height: 14px;
     border: 1px solid #FFFFFF;
     border-radius: 100%;
+} */
+
+.point {
+  width: 0.875rem;
+  height: 0.875rem;
+  border: 0.0625rem solid #ffffff;
+  border-radius: 100%;
 }
 
-#point-systolic{
-  background-color: #E66FD2;
+#point-systolic {
+  background-color: #e66fd2;
 }
-#point-diastolic{
-  background-color: #8C6FE6;
+#point-diastolic {
+  background-color: #8c6fe6;
 }
-.point-text{
-  font: normal normal bold 14px/19px Manrope;
+.point-text {
+  /* font: normal normal bold 14px/19px Manrope; */
+  font: normal normal normal 0.875rem/1.1875rem Manrope;
   letter-spacing: 0px;
 }
 
-.stats-bp{
+/* .stats-bp{
    font: normal normal bold 22px/30px Manrope;
    margin-top: 8px;
    margin-bottom: 8px;
+} */
+
+.stats-bp {
+  font: normal normal bold 1.375rem/1.875rem Manrope;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
-.stats-end{
+/* .stats-end{
   display: flex;
   gap: 8px;
   align-items: center;
   margin-bottom: 33px;
+} */
+
+.stats-end {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 2.0625rem;
 }
 
-.stats-end p{
-  font: normal normal normal 14px/19px Manrope;
-  
+.stats-end p {
+  /* font: normal normal normal 14px/19px Manrope; */
+  font: normal normal normal 0.875rem/1.1875rem Manrope;
   letter-spacing: 0px;
 }
 
@@ -369,24 +485,43 @@ p {
   margin: 0;
 }
 
-.cards{
+/* .cards{
   margin-top: 20px;
   display: flex;
   gap: 21px;
+  flex-wrap: wrap;
+} */
 
+.cards {
+  margin-top: 1.25rem;
+  display: flex;
+  gap: 1.3125rem;
+  flex-wrap: wrap;
 }
 
-.card{
+/* .card{
     width: 228px;
     height: 242px;
     background: #E0F3FA 0% 0% no-repeat padding-box;
     border-radius: 12px;
     opacity: 1;
     padding: 16px;
+} */
+
+.card {
+  width: 14.25rem;
+  height: 15.125rem;
+  background: #e0f3fa 0% 0% no-repeat padding-box;
+  border-radius: 0.75rem;
+  opacity: 1;
+  padding: 1rem;
+  /* flex: 1 1 calc(50% - 20px);  */
+  /* Allow cards to take up 50% width minus padding */
 }
 
-.card-p1{
+.card-p1 {
   padding-top: 16px;
+  /* font: normal normal medium 16px/22px Manrope; */
   font: normal normal medium 16px/22px Manrope;
   letter-spacing: 0px;
   color: #072635;
@@ -394,180 +529,342 @@ p {
   opacity: 1;
 }
 
-.card-p2{
-  font: normal normal 800 30px/41px Manrope;
+.card-p2 {
+  /* font: normal normal 800 30px/41px Manrope; */
+  font: normal normal 800 1.875rem/2.5625rem Manrope;
   letter-spacing: 0px;
 }
 
-.card-p3{
-  padding-top: 17px;
-  font: normal normal normal 14px/19px Manrope;
+.card-p3 {
+  /* padding-top: 17px; */
+  padding-top: 1.0625rem;
+  /* font: normal normal normal 14px/19px Manrope; */
+  font: normal normal normal 0.875rem/1.1875rem Manrope;
   letter-spacing: 0px;
   opacity: 1;
 }
 
-.card-temp{
+.card-temp {
   display: flex;
-  gap: 8px;
+  /* gap: 8px; */
+  gap: 0.5rem;
   align-items: center;
 }
 
-
 /* table design */
 
-
-table{
-  width:100%;
+table {
+  width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
 }
-.tbl-header{
+/* .tbl-header{
   background-color: var(--color-gray);
   border-radius: 70px;
   margin-top: 40px;
   margin-bottom: 11px;
- }
-.tbl-content{
-  height:200px;
-  overflow-x:auto;
-  margin-top: 0px;
-  border: 1px solid rgba(255,255,255,0.3);
+ } */
+
+.tbl-header {
+  background-color: var(--color-gray);
+  border-radius: 4.375rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.6875rem;
 }
 
-.tbl-header th{
+.tbl-content {
+  height: 200px;
+  overflow-x: auto;
+  margin-top: 0px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* .tbl-header th{
   padding: 15px 16px 14px 15px;
   text-align: left;
-  font: normal normal 700 14px/19px Manrope; /* bold */
+  font: normal normal 700 14px/19px Manrope; 
+  color: var(--color-black);
+} */
+
+.tbl-header th {
+  padding: 0.9375rem 1rem 0.875rem 0.9375rem;
+  text-align: left;
+  font: normal normal 700 0.875rem/1.1875rem Manrope; /* bold */
   color: var(--color-black);
   /* border-radius: 50%; */
 }
-.tbl-content td{
+
+/* .tbl-content td{
   padding: 11px 16px 10px;
   text-align: left;
   vertical-align:middle;
-  font: normal normal 400 14px/19px Manrope; /* normal */
+  font: normal normal 400 14px/19px Manrope; 
   color: var(--color-black);
   border-bottom: solid 1px rgba(255,255,255,0.1);
   border-radius: 50%; 
+} */
+
+.tbl-content td {
+  padding: 0.6875rem 1rem 0.625rem;
+  text-align: left;
+  vertical-align: middle;
+  font: normal normal 400 0.875rem/1.1875rem Manrope;
+  color: var(--color-black);
+  border-bottom: solid 0.0625rem rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
 }
 
-.patient-info{
-  margin: 18px 17px 0 33px;
+
+.patient-info {
+  /* margin: 0.9375vw 0 0 1.7188vw;  */
+  margin: calc(72px + 0.9375vw) 0 0 1.7188vw; 
 
 }
 
+/* .patient-info {
+  margin: 5.86vw 5.53vw 0 10.75vw; /
+} */
 
-.profile-info-container{
+/* .profile-info-container {
   padding: 32px 20px;
   background: var(--color-white) 0% 0% no-repeat padding-box;
   border-radius: 16px;
   opacity: 1;
   width: 300px;
   margin-bottom: 32px;
+} */
+
+/* .profile-info-container {
+  padding: 2rem 1.25rem;
+  background: var(--color-white) 0% 0% no-repeat padding-box;
+  border-radius: 1rem;
+  opacity: 1;
+  width: 18.75rem;
+  margin-bottom: 2rem;
+} */
+
+.profile-info-container {
+  padding: 32px 20px;
+  background: var(--color-white) 0% 0% no-repeat padding-box;
+  border-radius: 1rem; /* Keep border-radius in rem for consistent corner rounding */
+  opacity: 1;
+  /* width: 22vw;  */
+  margin-bottom: 32px; /* Converted from 2rem */
 }
 
-.patient-image{
+.patient-image {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.patient-image p{
+/* .patient-image p {
   margin: 24px 0 32px 0;
+} */
+
+.patient-image p {
+  margin: 1.5rem 0 2rem 0;
 }
 
-.patient-data{
+/* .patient-data {
   display: flex;
   align-items: center;
   gap: 16px;
   margin-bottom: 24px;
+} */
 
+.patient-data {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-.patient-data  div p{
+/* .patient-data div p {
   font: normal normal 500 14px/19px Manrope;
   letter-spacing: 0px;
   color: var(--color-black);
   text-transform: capitalize;
   opacity: 1;
+} */
+
+.patient-data div p {
+  font: normal normal 500 0.875rem/1.1875rem Manrope;
+  letter-spacing: 0;
+  color: var(--color-black);
+  text-transform: capitalize;
+  opacity: 1;
 }
 
-.patient-button-container{
+.patient-button-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.patient-data-button{
+/* .patient-data-button {
   width: 220px;
   height: 41px;
-  background: #01F0D0 0% 0% no-repeat padding-box; /* Background color */
+  background: #01f0d0 0% 0% no-repeat padding-box;
   border-radius: 41px;
   opacity: 1;
-  border: none; /* Optional: to remove default button border */
-  cursor: pointer; /* For a button-like interaction */
+  border: none; 
+  cursor: pointer;
   font: normal normal bold 14px/19px Manrope;
+} */
+
+.patient-data-button {
+  width: 13.75rem;
+  height: 2.5625rem;
+  background: #01f0d0 0% 0% no-repeat padding-box;
+  border-radius: 2.5625rem;
+  opacity: 1;
+  border: none;
+  cursor: pointer;
+  font: normal normal bold 0.875rem/1.1875rem Manrope;
 }
 
-.lab-results{
+/* .lab-results {
   padding: 20px;
   background: var(--color-white) 0% 0% no-repeat padding-box;
   border-radius: 16px;
   opacity: 1;
   width: 300px;
+} */
+
+.lab-results {
+  padding: 1.25rem;
+  background: var(--color-white) 0% 0% no-repeat padding-box;
+  border-radius: 1rem;
+  opacity: 1;
+  width: 18.75rem;
+  /* min-height: 22vw; */
 }
-.lab-results p{
+
+/* .lab-results p {
   margin-bottom: 16px;
   font: normal normal 800 24px/33px Manrope;
+} */
+
+.lab-results p {
+  margin-bottom: 1rem;
+  font: normal normal 800 1.5rem/2.0625rem Manrope;
 }
+
 /* for custom scrollbar for webkit browser*/
-.results-table{
-  height:200px;
-  overflow-x:auto;
+/* .results-table {
+  height: 200px;
+  overflow-x: auto;
   margin-top: 0px;
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+} */
+
+.results-table {
+  height: 12.5rem;
+  overflow-x: auto;
+  margin-top: 0;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.3);
 }
-.results-table td{
+
+/* .results-table td {
   padding: 11px 16px;
   text-align: left;
   font: normal normal normal 13px/18px Manrope;
   letter-spacing: 0px;
   text-transform: capitalize;
+} */
+
+.results-table td {
+  padding: 0.6875rem 1rem;
+  text-align: left;
+  font: normal normal normal 0.8125rem/1.125rem Manrope;
+  letter-spacing: 0;
+  text-transform: capitalize;
 }
 
-.results-table tr:hover{
-  background: #F6F7F8 0% 0% no-repeat padding-box;
+.results-table tr:hover {
+  background: #f6f7f8 0% 0% no-repeat padding-box;
 }
 
-#downloadIcon{
+#downloadIcon {
   text-align: right;
 }
 ::-webkit-scrollbar {
-    width: 6px;
-} 
+  width: 6px;
+}
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-  
-} 
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
 ::-webkit-scrollbar-thumb {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 
+@media(max-width: 768px){
+
+  .logo{
+    display: none;
+  }
+
+  .hamberger{
+    display: block;
+  }
+
+  .hamberger.active .bar:nth-child(2){
+    opacity: 0;
+  }
+
+  .hamberger.active .bar:nth-child(1){
+    transform: translateY(8px) rotate( 45deg);
+  }
+
+  .hamberger.active .bar:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+   .ul-middle{
+    position: fixed;
+    left: -100%;
+    top: 95px;
+    gap: 0;
+    flex-direction: column;
+    background-color: var(--color-white);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    width: 100%;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 100vw;
+   }
+
+   .ul-middle li{
+      margin: 16px 0;
+   }
+
+   .ul-middle.active{
+    left: 5%;
+    margin: 0;
+   }
+
+   .ul-middle li:hover{
+    background-color: var(--color-cyan);
+   }
+}
 /* Larger Screens - Use media queries for responsiveness */
 @media (min-width: 768px) {
   .navbar {
     max-width: 1564px;
-    /* A more reasonable width for tablets and desktop */
     height: 72px;
     border-radius: 70px;
+    position: fixed;
   }
-
+  
   .nav-links {
     display: flex;
     list-style-type: none;
-    gap: 20px; /* Add spacing between links */
+    gap: 20px;
   }
 
   .nav-links li a {
@@ -575,10 +872,213 @@ table{
     color: #333;
     font-size: 1rem;
   }
+
+ 
+
+
 }
 
-@media (min-width: 1025px) and (max-width: 1280px) {
+
+/* Extra small devices (phones in portrait) */
+@media (max-width: 480px) {
   .container {
-    
+    width: 100%;
+    padding: 10px;
   }
 }
+
+/* Small devices (phones in landscape, small tablets) */
+@media (min-width: 481px) and (max-width: 768px) {
+
+  .main-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .diagnosis-design {
+    /* margin-left: calc(290px + 1.5vw); */
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+
+  .chart-container{
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 0;
+  }
+
+  .cards{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .chart{
+    width: 100%;
+  }
+
+
+  .patient-info{
+    margin-top: 1.5vw;
+    gap: 1.5vw;
+    z-index: 5;
+    margin-left: calc(200px + 1.5vw); 
+
+  }
+
+  .profile-info-container{
+    width: 45vw;
+  }
+  .lab-results{
+    width: 13rem;
+    height: 300px;
+  }
+  /* #diagnostic-list,
+  #diagnosis-history {
+    width: 90vw; 
+    margin-right: 0;
+    height: auto; 
+  } */
+}
+
+/* Medium devices (tablets, larger phones) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .main-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .diagnosis-design {
+    margin-left: calc(290px + 1.5vw); 
+  }
+
+  .patient-info{
+    display: flex;
+    justify-content: space-between;
+    margin-left: calc(290px + 1.5vw);
+    gap: 10px;
+  }
+
+  .chart-container{
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 0;
+  }
+
+  .cards{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart{
+    width: 100%;
+  }
+
+  .patient-info{
+    margin-top: 1.5vw;
+    gap: 1.5vw;
+  }
+
+  .profile-info-container{
+    width: 45vw;
+  }
+  .lab-results{
+    width: 30rem;
+    height: 300px;
+  }
+
+  .ul-end .text{
+    display: none;
+  }
+ 
+  .ul-end img{
+    margin-right: 10px;
+  }
+
+  .navbar{
+    position: fixed;
+  }
+  .patients-list{
+    margin: calc(1.5vw + 72px) 1.5vw 1.5vw 0;
+  }
+
+  .diagnosis-part{
+    flex-direction: column;
+  }
+
+  .cards{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .patient-info{
+    display: flex;
+    justify-content: space-between;
+    margin-left: calc(290px + 1.5vw);
+    width: 50vw;
+    gap: 10px;
+    margin-top: 1.5vw;
+  }
+  
+  .profile-info-container{
+    width: 45vw;
+  }
+  .lab-results{
+    width: 30rem;
+    height: 300px;
+  }
+}
+
+/* Large devices (small laptops, desktops) */
+@media (min-width: 1025px) and (max-width: 1300px) {
+  .main-container{
+    flex-direction: column;
+    /* overflow-x: auto; */
+  }
+
+  .diagnosis-design {
+    margin-left: calc(290px + 1.5vw);
+  }
+
+  .cards{
+    justify-content: space-between;
+  }
+
+  @media (min-width: 1025px) and (max-width: 1113px){
+    .card {
+      width: 12.25rem;
+      height: 15.125rem;
+    }
+
+    
+  }
+
+  .ul-end .text{
+    display: none;
+
+  }
+
+  .ul-end img{
+    margin-right: 1.5625rem
+  }
+ 
+
+  .patient-info{
+    display: flex;
+    justify-content: space-between;
+    margin-left: calc(290px + 1.5vw);
+    width: 50vw;
+    gap: 10px;
+    margin-top: 1.5vw;
+  }
+  
+  .profile-info-container{
+    width: 45vw;
+  }
+  .lab-results{
+    width: 30rem;
+    height: 300px;
+  }
+}
+
